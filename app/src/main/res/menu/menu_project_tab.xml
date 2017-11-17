@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.apps.fae.com.apps.fae.MainTab">
+
+    <item android:id="@+id/ProjectSort"
+        android:title="Project Sort" />
+
+    <item
+        android:id="@+id/Contact"
+        android:title="Help Desk" />
+</menu>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/bg_dragon"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#00000000"
+        app:layout_scrollFlags="scroll|enterAlways"
+        app:popupTheme="@style/AppTheme.PopupOverlay"></android.support.v7.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/Subject"
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:layout_marginLeft="15dp"
+        android:layout_weight="1"
+        android:background="#00000000"
+        android:text="Subject"
+        android:textColor="@color/Feedback_Font"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/Subject_edit"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_weight="1"
+        android:background="@color/edit_bg"
+        android:ems="10"
+        android:maxLines="2"
+        android:hint="Please enter the subject"
+        android:inputType="textPersonName"
+        android:paddingLeft="18dp"
+        android:textColor="@color/Feedback_Hint"
+        android:textColorHint="@color/Feedback_Hint" />
+
+    <TextView
+        android:id="@+id/Description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        android:background="#00000000"
+        android:text="Description"
+        android:textColor="@color/Feedback_Font"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/Description_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_weight="5"
+        android:background="@color/edit_bg"
+        android:ems="10"
+        android:hint="Please enter a description"
+        android:gravity="left|center_horizontal"
+        android:inputType="textPersonName"
+        android:paddingLeft="18dp"
+        android:textColorHint="@color/Feedback_Hint"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/Photo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        android:background="#00000000"
+        android:gravity="left"
+        android:text="Photo"
+        android:textColor="@color/Feedback_Font"
+        android:textSize="24sp" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="22dp"
+        android:layout_weight="6"
+        app:srcCompat="@mipmap/btn_feedback_addphoto" />
+
+    <Button
+        android:id="@+id/Submit"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="2"
+        android:background="@color/Feedback_Font"
+        android:text="Submit"
+        android:textColor="@color/My_New_Font"
+        android:textSize="18sp" />
+</LinearLayout>

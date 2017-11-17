@@ -1,0 +1,104 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">FAE</string>
+    <string name="title_activity_main_tab">MainTab</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="connecting">ToyVPN is connecting...</string>
+    <string name="connected">ToyVPN is connected!</string>
+    <string name="disconnected">ToyVPN is disconnected!</string>
+
+
+    <string name="multipart_upload">Multipart</string>
+    <string name="binary_upload">Binary</string>
+    <string name="ftp_upload">FTP</string>
+    <string name="cancel_upload">Cancel upload</string>
+    <string name="cancel_all_uploads">Cancel all uploads</string>
+    <string name="server_upload_url">Server upload URL</string>
+    <string name="browse">Browse..</string>
+    <string name="select_file">Select file to upload</string>
+    <string name="files_to_upload_path">Path of the files to upload</string>
+    <string name="parameter_name">File parameter name</string>
+    <string name="parameter_name_hint">E.g. uploaded_file</string>
+    <string name="upload_progress">Upload progress: %s</string>
+    <string name="uploading">Uploaded [[UPLOADED_FILES]] of [[TOTAL_FILES]] at [[UPLOAD_RATE]] - [[PROGRESS]]</string>
+    <string name="upload_success">Upload completed successfully in [[ELAPSED_TIME]]</string>
+    <string name="upload_error">Error while uploading</string>
+    <string name="server_url_hint">server.com/path/to/script</string>
+    <string name="file_path_hint">/path/to/your/file.ext</string>
+    <string name="display_notification">Display notification</string>
+    <string name="auto_delete_uploaded_files">Auto delete uploaded files</string>
+    <string name="options">Options</string>
+    <string name="auto_clear_on_success">Auto clear on success</string>
+    <string name="fixed_length_streaming_mode">Fixed length streaming mode</string>
+    <string name="use_utf8_charset">Use UTF-8 charset (un-check to use US-ASCII)</string>
+
+    <string-array name="protocols">
+        <item>http://</item>
+        <item>https://</item>
+    </string-array>
+
+    <string name="new_multipart">New multipart upload</string>
+    <string name="files_to_upload">Files to upload</string>
+    <string name="upload_parameters">Upload parameters</string>
+    <string name="title_activity_multipart_upload">New multipart upload</string>
+    <string name="no_files">No files to upload.\nTap on + to add one.</string>
+    <string name="no_parameters">No parameters.\nTap on + to add one.</string>
+    <string name="done">Done</string>
+
+    <!--VideoPlayerString-->
+    <string name="video">Video</string>
+
+    <string name="audio">Audio</string>
+
+    <string name="text">Text</string>
+
+    <string name="retry">Retry</string>
+
+    <string name="selection_disabled">Disabled</string>
+
+    <string name="selection_default">Default</string>
+
+    <string name="selection_default_none">Default (none)</string>
+
+    <string name="unexpected_intent_action">Unexpected intent action: <xliff:g id="action">%1$s</xliff:g></string>
+
+    <string name="enable_random_adaptation">Enable random adaptation</string>
+
+    <string name="error_drm_not_supported">Protected content not supported on API levels below 18</string>
+
+    <string name="error_drm_unsupported_scheme">This device does not support the required DRM scheme</string>
+
+    <string name="error_drm_unknown">An unknown DRM error occurred</string>
+
+    <string name="error_no_decoder">This device does not provide a decoder for <xliff:g id="mime_type">%1$s</xliff:g></string>
+
+    <string name="error_no_secure_decoder">This device does not provide a secure decoder for <xliff:g id="mime_type">%1$s</xliff:g></string>
+
+    <string name="error_querying_decoders">Unable to query device decoders</string>
+
+    <string name="error_instantiating_decoder">Unable to instantiate decoder <xliff:g id="decoder_name">%1$s</xliff:g></string>
+
+    <string name="error_unsupported_video">Media includes video tracks, but none are playable by this device</string>
+
+    <string name="error_unsupported_audio">Media includes audio tracks, but none are playable by this device</string>
+
+    <string name="storage_permission_denied">Permission to access storage was denied</string>
+
+    <string name="sample_list_load_error">One or more sample lists failed to load</string>
+
+    <string name="selector_folder_all">All</string>
+    <string name="selector_caption">Choose Photo</string>
+    <!--http://stackoverflow.com/questions/17502824/whats-wrong-with-this-format-string-->
+    <string name="selector_action_done">Done(%1$d/%2$d)</string>
+    <string name="selector_preview">Review</string>
+
+    <string name="selector_reach_max_image_hint">You have chosen%d photos!</string>
+    <string name="tip_take_photo">Take Picture</string>
+    <string name="msg_no_camera">Start Camera Error</string>
+    <string name="camera_temp_file_error">Photo Error</string>
+
+    <string name="selector_permission_error">Authority Error</string>
+</resources>
