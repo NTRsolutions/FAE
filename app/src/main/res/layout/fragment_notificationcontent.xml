@@ -26,16 +26,16 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/button3"
+                    android:id="@+id/Release_Info"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
                     android:layout_marginStart="20dp"
                     android:layout_weight="1"
-                    android:background="@color/Feedback_Font"
+                    android:background="@drawable/notification_button"
                     android:text="Release Info"
                     android:textColor="@color/Banner_Font"
-                    android:textSize="12sp" />
+                    android:textSize="18sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -46,15 +46,16 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/button2"
+                    android:id="@+id/Product"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginRight="30dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
                     android:layout_weight="1"
-                    android:background="@color/Feedback_Font"
+                    android:background="#00000000"
                     android:text="Product"
-                    android:textColor="@color/Banner_Font" />
+                    android:textColor="@color/Banner_Font"
+                    android:textSize="18sp" />
             </LinearLayout>
 
 

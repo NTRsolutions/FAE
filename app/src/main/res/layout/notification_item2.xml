@@ -16,7 +16,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/txt_Notification_Date"
+            android:id="@+id/txt_Product_Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -30,24 +30,25 @@
             android:textSize="19sp" />
 
         <Button
-            android:id="@+id/angry_btn"
+            android:id="@+id/btn_New"
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            android:background="@drawable/buttonshape"
             android:text="New"
             android:textColor="#ffffff"
-            android:textSize="30sp"
-            android:layout_width="80dp"
-            android:layout_height="40dp"
-            android:background="@drawable/buttonshape" />
+            android:textSize="10sp" />
 
         <ImageView
-            android:id="@+id/imageView7"
+            android:id="@+id/Img_share"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15sp"
             android:layout_weight="1"
             app:srcCompat="@mipmap/btn_news_common_share" />
     </LinearLayout>
 
     <TextView
-        android:id="@+id/txt_Notification_Title"
+        android:id="@+id/txt_Date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="left|center_horizontal"

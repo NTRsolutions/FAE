@@ -42,22 +42,13 @@ public class NotificationAdapter2 extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        View v = mLayInf.inflate(com.apps.fae.R.layout.notification_item1, parent, false);
+        View v = mLayInf.inflate(com.apps.fae.R.layout.notification_item2, parent, false);
 
+        TextView txt_Product_Title = (TextView) v.findViewById(com.apps.fae.R.id.txt_Product_Title);
+        TextView txt_Date = (TextView) v.findViewById(com.apps.fae.R.id.txt_Date);
 
-
-
-        TextView txt_Notification_Title = (TextView) v.findViewById(com.apps.fae.R.id.txt_Notification_Title);
-        TextView txt_Notification_Content = (TextView) v.findViewById(com.apps.fae.R.id.txt_Notification_Content);
-        TextView txt_Notification_Date = (TextView) v.findViewById(com.apps.fae.R.id.txt_Notification_Date);
-        //TextView txt_Notification_AuthorName = (TextView) v.findViewById(com.apps.fae.R.id.txt_Notification_AuthorName);
-
-//        GetServiceData.GetUserPhoto(Notification_List.get(position).GetAuthor_WorkID(),Img_Notification_Author);
-
-        txt_Notification_Title.setText(Notification_List.get(position).GetModel_Title());
-        txt_Notification_Content.setText(Notification_List.get(position).GetType_Title());
-        txt_Notification_Date.setText(Notification_List.get(position).GetDate());
-        // txt_Notification_AuthorName.setText(Notification_List.get(position).GetAuthor_Name());
+        txt_Product_Title.setText(Notification_List.get(position).GetProduct_Title());
+        txt_Date.setText(Notification_List.get(position).GetProduct_Date());
 
         return v;
     }

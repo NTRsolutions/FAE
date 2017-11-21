@@ -39,27 +39,27 @@ public class NotificationAdapter extends BaseAdapter {
         return position;
     }
 
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        View v = mLayInf.inflate(com.apps.fae.R.layout.notification_item1, parent, false);
-
-
-
-
-        TextView txt_Notification_Title = (TextView) v.findViewById(com.apps.fae.R.id.txt_Notification_Title);
-        TextView txt_Notification_Content = (TextView) v.findViewById(com.apps.fae.R.id.txt_Notification_Content);
-        TextView txt_Notification_Date = (TextView) v.findViewById(com.apps.fae.R.id.txt_Notification_Date);
-        //TextView txt_Notification_AuthorName = (TextView) v.findViewById(com.apps.fae.R.id.txt_Notification_AuthorName);
+            View v = mLayInf.inflate(com.apps.fae.R.layout.notification_item1, parent, false);
+            TextView txt_Notification_Title = (TextView) v.findViewById(com.apps.fae.R.id.txt_Notification_Title);
+            TextView txt_Notification_Content = (TextView) v.findViewById(com.apps.fae.R.id.txt_Notification_Content);
+            TextView txt_Notification_Date = (TextView) v.findViewById(com.apps.fae.R.id.txt_Notification_Date);
+            TextView txt_Notification_Desc = (TextView) v.findViewById(com.apps.fae.R.id.txt_Notification_Desc);
 
 //        GetServiceData.GetUserPhoto(Notification_List.get(position).GetAuthor_WorkID(),Img_Notification_Author);
 
-        txt_Notification_Title.setText(Notification_List.get(position).GetModel_Title());
-        txt_Notification_Content.setText(Notification_List.get(position).GetType_Title());
-        txt_Notification_Date.setText(Notification_List.get(position).GetDate());
-       // txt_Notification_AuthorName.setText(Notification_List.get(position).GetAuthor_Name());
+            txt_Notification_Title.setText(Notification_List.get(position).GetModel_Title());
+            txt_Notification_Content.setText(Notification_List.get(position).GetType_Title());
+            txt_Notification_Date.setText(Notification_List.get(position).GetDate());
+            txt_Notification_Desc.setText(Notification_List.get(position).GetVersion());
 
-        return v;
+
+
+            return v;
+
+
     }
-
 }

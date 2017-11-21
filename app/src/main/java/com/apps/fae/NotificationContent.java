@@ -3,6 +3,7 @@ package com.apps.fae;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.android.volley.RequestQueue;
@@ -44,7 +46,9 @@ public class NotificationContent extends Fragment {
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private ListView lsv_main;
     private NotificationAdapter mListAdapter;
+    private NotificationAdapter2 mListAdapter2;
     List<Notification_Item> Notification_List = new ArrayList<Notification_Item>();
+    List<Notification_Item> Notification_List2 = new ArrayList<>();
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -57,8 +61,9 @@ public class NotificationContent extends Fragment {
 
     private View mView;
     private RequestQueue mQueue;
-
-
+    private Button Release_Info;
+    private Button Product;
+    private Boolean Button = true;
 
     public NotificationContent() {
         // Required empty public constructor
@@ -85,6 +90,9 @@ public class NotificationContent extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -108,6 +116,37 @@ public class NotificationContent extends Fragment {
         lsv_main = (ListView) mView.findViewById(com.apps.fae.R.id.listView);
 
         lsv_main.setOnItemClickListener(listViewOnItemClickListener);
+
+        Release_Info = (Button) mView.findViewById(R.id.Release_Info);
+        Product= (Button) mView.findViewById(R.id.Product);
+        Release_Info.setOnClickListener(new Button.OnClickListener(){
+
+            @Override
+            public void onClick(View v){
+                // TODO Auto-generated method stub
+                Release_Info.setBackgroundColor(Color.parseColor("#e7222b"));
+                Product.setBackgroundColor(Color.parseColor("#00000000"));
+                Button = true;
+                if (!UserData.WorkID.matches("")) {
+
+                    Find_Notification(UserData.WorkID);
+                }
+            }
+        });
+        Product.setOnClickListener(new Button.OnClickListener(){
+
+            @Override
+            public void onClick(View v){
+                // TODO Auto-generated method stub
+                Product.setBackgroundColor(Color.parseColor("#e7222b"));
+                Release_Info.setBackgroundColor(Color.parseColor("#00000000"));
+                Button = false;
+                if (!UserData.WorkID.matches("")) {
+
+                    Find_Notification(UserData.WorkID);
+                }
+            }
+        });
 
 
         mSwipeRefreshLayout = (SwipeRefreshLayout) mView.findViewById(com.apps.fae.R.id.refresh_layout);
@@ -154,6 +193,7 @@ public class NotificationContent extends Fragment {
     private void NotificationDataMapping(JSONObject result) {
         try {
             Notification_List.clear();
+            Notification_List2.clear();
 
             JSONArray UserArray = new JSONArray(result.getString("Key"));
 
@@ -185,15 +225,24 @@ public class NotificationContent extends Fragment {
             if (Notification_List.size() > 0) {
 
             }
-            Notification_List.add(0, new Notification_Item("GE63VR 7RE RAIDER", "BIOS", "2017/07/25", "E16P1MS.102", "", "",0 ));
-            Notification_List.add(0, new Notification_Item("GE63VR 7RE RAIDER", "BIOS", "2017/07/25", "E16P1MS.102", "", "",1 ));
+            Notification_List.add(0, new Notification_Item("GE63VR 7RE RAIDER", "BIOS", "2017/07/25", "版本:E16P1MS.102", "", "",0 ));
+            Notification_List2.add(0, new Notification_Item("GE63VR 7RE RAIDER", "BIOS", "2017/07/25", "版本:E16P1MS.102", "電競熱銷超值大Fun送~", "2017/07/25",0 ));
             // ListView 中所需之資料參數可透過修改 Adapter 的建構子傳入
             mListAdapter = new NotificationAdapter(getActivity(), Notification_List);
+            mListAdapter2 = new NotificationAdapter2(getActivity(), Notification_List2);
 
             lsv_main.setEmptyView(mView.findViewById(com.apps.fae.R.id.emptyview));
 
-            //設定 ListView 的 Adapter
-            lsv_main.setAdapter(mListAdapter);
+            if(Button){
+                //設定 ListView 的 Adapter
+                lsv_main.setAdapter(mListAdapter);
+
+            }
+            else {
+
+                lsv_main.setAdapter(mListAdapter2);
+            }
+
 
 
         } catch (JSONException ex) {
