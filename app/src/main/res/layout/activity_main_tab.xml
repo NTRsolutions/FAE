@@ -24,38 +24,48 @@
             android:layout_height="?attr/actionBarSize"
             android:background="@color/Title_bg"
             app:layout_scrollFlags="scroll|enterAlways"
-            app:popupTheme="@style/AppTheme.PopupOverlay">
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:titleMargin="@dimen/activity_horizontal_margin"
+            app:titleTextColor="#ffffffff">
 
-                <ImageView
-                    android:id="@+id/Flash"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_toLeftOf="@+id/Img_Project_QRCode"
-                    android:layout_toStartOf="@+id/Img_Project_QRCode"
-                    android:layout_weight="1"
-                    android:paddingRight="10dp"
-                    app:srcCompat="@mipmap/btn_head_flashsymbol" />
+            <TextView
+                android:id="@+id/Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:text="TextView"
+                android:textColor="#ffffffff"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
-                <ImageView
-                    android:id="@+id/Img_Project_QRCode"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/Flash"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_gravity="end"
-                    android:layout_toLeftOf="@+id/Img_Project_QRCode"
-                    android:layout_toRightOf="@+id/Img_Project_QRCode"
-                    android:paddingRight="10dp"
-                    android:src="@mipmap/btn_head_photo" />
-            </RelativeLayout>
 
+
+            <ImageView
+                android:id="@+id/Img_Project_QRCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/Flash"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="end"
+                android:paddingRight="10dp"
+                android:src="@mipmap/btn_head_photo" />
+            <ImageView
+                android:id="@+id/Flash"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/Flash"
+                android:layout_alignParentEnd="false"
+                android:layout_alignParentRight="false"
+                android:layout_gravity="end"
+                android:paddingRight="10dp"
+                app:srcCompat="@mipmap/btn_head_flashsymbol" />
 
         </android.support.v7.widget.Toolbar>
+
+
 
 
         <android.support.design.widget.TabLayout

@@ -2,12 +2,15 @@ package com.apps.fae;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import java.util.List;
@@ -21,6 +24,10 @@ public class SettingAdapter extends BaseAdapter {
     private LayoutInflater mLayInf;
 
     private List<Setting_Item> Setting_List;
+
+    Switch Notification_Switch ;
+
+
 
     public SettingAdapter(Context context, List<Setting_Item> Setting_List) {
         mLayInf = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -51,7 +58,9 @@ public class SettingAdapter extends BaseAdapter {
         ImageView Next_image =(ImageView) v.findViewById(R.id.Next_image);
         TextView txt_Setting_main = (TextView) v.findViewById(R.id.txt_Setting_main);
         TextView txt_Setting_sub = (TextView) v.findViewById(R.id.txt_Setting_sub);
+        Notification_Switch = (Switch) v.findViewById((R.id.Notification_Switch));
 
+        
 
 
 //        GetServiceData.GetUserPhoto(Notification_List.get(position).GetAuthor_WorkID(),Img_Notification_Author);
@@ -59,7 +68,23 @@ public class SettingAdapter extends BaseAdapter {
         Next_image.setImageResource(Setting_List.get(position).Next_image());
         txt_Setting_main.setText(Setting_List.get(position).Setting_main());
         txt_Setting_sub.setText(Setting_List.get(position).Setting_sub());
+        Notification_Switch.setVisibility((Setting_List.get(position).Switch())?View.VISIBLE:View.GONE);
 
+
+
+
+      Notification_Switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+          @Override
+          public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+             if (Notification_Switch.isChecked()){
+
+             }
+             else{
+
+             }
+          }
+      });
 
         return v;
     }

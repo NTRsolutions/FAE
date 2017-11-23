@@ -73,6 +73,7 @@ public class MainTab extends AppCompatActivity {
     static final int REQUEST_VIDEO_CAPTURE = 1;
     static final int REQUEST_IMAGE_CAPTURE = 2;
     static final int REQUEST_CODE_SCAN_GALLERY = 3;
+    static final int PICK_FROM_GALLERY = 5;
     static final String ACTION_SCAN = "com.google.zxing.client.android.SCAN";
     private static final int MY_PERMISSIONS_REQUEST_READ_CONTACTS = 1;
     private ProgressDialog pDialog;
@@ -81,7 +82,7 @@ public class MainTab extends AppCompatActivity {
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
     private Context mcontext;
 
-    static final int PICK_FROM_GALLERY = 5;
+
     private File ImageFile;
 
     private File VideoFile;
@@ -89,19 +90,13 @@ public class MainTab extends AppCompatActivity {
     Parameters parameters;
     static boolean QR_Code_Checked = false;
     static boolean Flash_Checked = false;
-    /**
-     * The {@link android.support.v4.view.PagerAdapter} that will provide
-     * fragments for each of the sections. We use a
-     * {@link FragmentPagerAdapter} derivative, which will keep every
-     * loaded fragment in memory. If this becomes too memory intensive, it
-     * may be best to switch to a
-     * {@link android.support.v4.app.FragmentStatePagerAdapter}.
-     */
+
+    ImageView Img_Project_QRCode;
+    ImageView Flash;
+    TextView Title;
+
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
-    /**
-     * The {@link ViewPager} that will host the section contents.
-     */
     private ViewPager mViewPager;
 
     private int[] SelectIcon = {
@@ -136,21 +131,22 @@ public class MainTab extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(com.apps.fae.R.layout.activity_main_tab);
 
         Toolbar toolbar = (Toolbar) findViewById(com.apps.fae.R.id.toolbar);
         setSupportActionBar(toolbar);
-        // Create the adapter that will return a fragment for each of the three
-        // primary sections of the activity.
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+
+        Img_Project_QRCode = (ImageView) findViewById(com.apps.fae.R.id.Img_Project_QRCode);
+        Flash = (ImageView) findViewById(com.apps.fae.R.id.Flash);
+        Title = (TextView) findViewById(com.apps.fae.R.id.Title);
+
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
-        // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(com.apps.fae.R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-
         mcontext = MainTab.this;
-
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -161,19 +157,19 @@ public class MainTab extends AppCompatActivity {
             public void onPageSelected(int position) {
                 switch (position) {
                     case 0:
-                        setTitle("Scan barcode");
+                        Title.setText("Scan barcode");
                         break;
                     case 1:
-                        setTitle("My Issue");
+                        Title.setText("My Issue");
                         break;
                     case 2:
-                        setTitle("My History");
+                        Title.setText("My History");
                         break;
                     case 3:
-                        setTitle("News");
+                        Title.setText("News");
                         break;
                     case 4:
-                        setTitle("Setting");
+                        Title.setText("Setting");
                         break;
                 }
             }
@@ -183,7 +179,6 @@ public class MainTab extends AppCompatActivity {
 
             }
         });
-
 
         final TabLayout tabLayout = (TabLayout) findViewById(com.apps.fae.R.id.tabs);
 
@@ -212,22 +207,7 @@ public class MainTab extends AppCompatActivity {
 
 
                 if (tab.getPosition() == 0) {
-                    //QR_Code_Scan_Start();
-//                    tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-//
-//                        @Override
-//                        public void onTabSelected(TabLayout.Tab tab) {
-//                            tabLayout.getTabAt(1).select();
-//                        }
-//
-//                        @Override
-//                        public void onTabReselected(TabLayout.Tab arg0) {
-//                        }
-//
-//                        @Override
-//                        public void onTabUnselected(TabLayout.Tab arg0) {
-//                        }
-//                    });
+
 
                 }
 
@@ -280,7 +260,6 @@ public class MainTab extends AppCompatActivity {
 
         }
 
-
         View TabView = tabLayout.getTabAt(LastTab).getCustomView();
 
         prepareTabView(TabView, "0", SelectIcon[LastTab]);
@@ -289,25 +268,31 @@ public class MainTab extends AppCompatActivity {
 
         switch (LastTab) {
             case 0:
-                setTitle("Scan barcode");
+
+                Title.setText("Scan barcode");
+
                 break;
             case 1:
-                setTitle("My Issue");
+
+                Title.setText("My Issue");
                 break;
             case 2:
-                setTitle("My History");
+
+                Title.setText("My History");
                 break;
             case 3:
-                setTitle("News");
+
+                Title.setText("News");
                 break;
             case 4:
-                setTitle("Setting");
+
+                Title.setText("Setting");
                 break;
 
 
             default:
                 //預設選Scan這頁
-                setTitle("My Issue");
+                Title.setText("My Issue");
 
                 View DefaultTabView = tabLayout.getTabAt(1).getCustomView();
 
@@ -347,8 +332,6 @@ public class MainTab extends AppCompatActivity {
         }
 
 
-        ImageView Img_Project_QRCode = (ImageView) findViewById(com.apps.fae.R.id.Img_Project_QRCode);
-
         Img_Project_QRCode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
@@ -360,7 +343,7 @@ public class MainTab extends AppCompatActivity {
 
             }
         });
-        ImageView Flash = (ImageView) findViewById(com.apps.fae.R.id.Flash);
+
 
         Flash.setOnClickListener(new View.OnClickListener() {
 
@@ -371,9 +354,7 @@ public class MainTab extends AppCompatActivity {
 
                       if(Flash_Checked==false)
                       {
-                          ScanFragment.OpenFlash(true);
-
-//
+                          ScanFragment.OpenFlash(true);//
                           Flash_Checked=true;
 //                      camera = Camera.open(Camera.CameraInfo.CAMERA_FACING_BACK);
 //                      parameters = camera.getParameters();
@@ -842,8 +823,13 @@ public class MainTab extends AppCompatActivity {
 
         int tab = tabLayout.getSelectedTabPosition();
 
-        if (tab == 0)
+        if (tab == 0){
             getMenuInflater().inflate(com.apps.fae.R.menu.menu_project_tab, menu);
+
+
+
+        }
+
 //        else
 //            getMenuInflater().inflate(R.menu.menu_main_tab, menu);
 
@@ -861,10 +847,16 @@ public class MainTab extends AppCompatActivity {
 
         int tab = tabLayout.getSelectedTabPosition();
 
-        if (tab == 0)
+        if (tab == 0){
             getMenuInflater().inflate(com.apps.fae.R.menu.menu_project_tab, menu);
-        else
+
+        Img_Project_QRCode.setVisibility(View.VISIBLE);
+        Flash.setVisibility(View.VISIBLE);}
+        else{
             getMenuInflater().inflate(com.apps.fae.R.menu.menu_main_tab, menu);
+        Img_Project_QRCode.setVisibility(View.GONE);
+        Flash.setVisibility(View.GONE);}
+
         return true;
     }
 

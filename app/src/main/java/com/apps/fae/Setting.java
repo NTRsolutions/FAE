@@ -14,6 +14,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SeekBar;
 import android.widget.Switch;
@@ -61,11 +63,13 @@ public class Setting extends Fragment  {
         // Required empty public constructor
     }
     //ListView 要顯示的內容　改到全域變數
-    public String[][] str  = {{"Current Version","1.2.0"},{"Update Version","1.0.0"},{"Notifications","ON"},{"Font Size","Medium"},{"Feedback",""}};
+    public String[][] str  = {{"Current Version","1.2.0"},{"Update Version","1.0.0"},{"Notifications",""},{"Font Size","Medium"},{"Feedback",""}};
 
     public int[][] image  = {{R.mipmap.ic_setting_version,0},{R.mipmap.ic_setting_updateversion,0},{R.mipmap.ic_setting_notifications,0},{R.mipmap.ic_setting_fontsize,R.mipmap.btn_setting_common_arrow},{R.mipmap.ic_setting_feedback,R.mipmap.btn_setting_common_arrow}};
 
+    public Boolean[] Switch = {false,false,true,false,false};
     private LayoutInflater mLayInf;
+    public Boolean isChecked=true;
 
     /**
      * Use this factory method to create a new instance of
@@ -87,14 +91,6 @@ public class Setting extends Fragment  {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-      //super.onCreate(savedInstanceState);
-
-//        Intent intent = new Intent(getActivity(), feedback.class);
-//
-//
-//        // 呼叫「startActivity」，參數為一個建立好的Intent物件
-//        // 這行敘述執行以後，如果沒有任何錯誤，就會啟動指定的元件
-//        startActivity(intent);
 
 
         super.onCreate(savedInstanceState);
@@ -118,34 +114,18 @@ public class Setting extends Fragment  {
         mView = inflater.inflate(R.layout.fragment_settings, container, false);
         //宣告 ListView 元件
         lsv_main = (ListView) mView.findViewById(R.id.list_view);
-
-//        View v = mLayInf.inflate(R.layout.fragment_settings, parent, false);
-//        Button Test = (Button)  v.findViewById(R.id.button3);
-//        Test.OnClickListener();
-
-
-
-
-
-//        mSwipeRefreshLayout = (SwipeRefreshLayout) mView.findViewById(R.id.refresh_layout);
 //
-//        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-//            @Override
-//            public void onRefresh() {
-//                mSwipeRefreshLayout.setRefreshing(false);
-//
-//
-//            }
-//        });
         Setting_List.clear();
-        for (int i=0; i<str.length; ++i)
+        //
+        for (int i=str.length-1; i>=0; --i)
         {
-            Setting_List.add(0, new Setting_Item(image[i][0],str[i][0],str[i][1],image[i][1]));
+            Setting_List.add(0, new Setting_Item(image[i][0],str[i][0],str[i][1],image[i][1],Switch[i]));
         }
+
+
         //Setting_List.add(0,new Setting_Item("Test Main","Test sub"));
         mListAdapter = new SettingAdapter(getActivity(), Setting_List);
         lsv_main.setAdapter(mListAdapter);
-
         lsv_main.setOnItemClickListener(listViewOnItemClickListener);
 
 
@@ -160,8 +140,8 @@ public class Setting extends Fragment  {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             SettingAdapter SettingAdapter = (SettingAdapter) parent.getAdapter();
-
             Setting_Item Setting_Item = (Setting_Item) SettingAdapter.getItem(position);
+
 
             if(Setting_Item.GetID()=="Feedback"){
             Intent intent = new Intent(getActivity(), feedback.class);
@@ -173,11 +153,18 @@ public class Setting extends Fragment  {
                 // 呼叫「startActivity」，參數為一個建立好的Intent物件
                 // 這行敘述執行以後，如果沒有任何錯誤，就會啟動指定的元件
                 startActivity(intent);
+            }
+            else if(Setting_Item.GetID()=="Notifications"){
+                View v = mLayInf.inflate(R.layout.setting_item, parent, false);
+                LinearLayout Next_Image_Layout =(LinearLayout) v.findViewById(R.id.Next_Image_Layout);
+                Next_Image_Layout.setVisibility((Setting_List.get(position).Switch())?View.VISIBLE:View.GONE);
 
             }
         }
 
     };
+
+
 
     private void GoToNext(Class page) {
 

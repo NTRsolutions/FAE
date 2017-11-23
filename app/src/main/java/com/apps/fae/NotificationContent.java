@@ -115,7 +115,8 @@ public class NotificationContent extends Fragment {
         //宣告 ListView 元件
         lsv_main = (ListView) mView.findViewById(com.apps.fae.R.id.listView);
 
-        lsv_main.setOnItemClickListener(listViewOnItemClickListener);
+
+
 
         Release_Info = (Button) mView.findViewById(R.id.Release_Info);
         Product= (Button) mView.findViewById(R.id.Product);
@@ -124,13 +125,14 @@ public class NotificationContent extends Fragment {
             @Override
             public void onClick(View v){
                 // TODO Auto-generated method stub
-                Release_Info.setBackgroundColor(Color.parseColor("#e7222b"));
+                Release_Info.setBackground(getResources().getDrawable(R.drawable.notification_button));
                 Product.setBackgroundColor(Color.parseColor("#00000000"));
                 Button = true;
                 if (!UserData.WorkID.matches("")) {
 
                     Find_Notification(UserData.WorkID);
                 }
+                lsv_main.setOnItemClickListener(listViewOnItemClickListener);
             }
         });
         Product.setOnClickListener(new Button.OnClickListener(){
@@ -138,13 +140,14 @@ public class NotificationContent extends Fragment {
             @Override
             public void onClick(View v){
                 // TODO Auto-generated method stub
-                Product.setBackgroundColor(Color.parseColor("#e7222b"));
+                Product.setBackground(getResources().getDrawable(R.drawable.notification_button));
                 Release_Info.setBackgroundColor(Color.parseColor("#00000000"));
                 Button = false;
                 if (!UserData.WorkID.matches("")) {
-
                     Find_Notification(UserData.WorkID);
                 }
+                lsv_main.setOnItemClickListener(listViewOnItemClickListener2);
+
             }
         });
 
@@ -173,6 +176,50 @@ public class NotificationContent extends Fragment {
         return mView;
     }
 
+
+    /***
+     * 點擊ListView事件Method
+     */
+    private AdapterView.OnItemClickListener listViewOnItemClickListener
+            = new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            NotificationAdapter NotificationAdapter = (NotificationAdapter) parent.getAdapter();
+
+
+            Notification_Item Notification_Item = (Notification_Item) NotificationAdapter.getItem(position);
+
+
+            if(Notification_Item.GetType_Title()=="BIOS"){
+                shareTo("Share BIOS","Share BIOS","");
+            }
+            else if(Notification_Item.GetType_Title()=="EC Fireware"){
+                shareTo("Share EC Fireware","Share EC Fireware","");
+            }
+        }
+    };
+
+    private AdapterView.OnItemClickListener listViewOnItemClickListener2
+            = new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            NotificationAdapter2 NotificationAdapter2 = (NotificationAdapter2) parent.getAdapter();
+
+
+            Notification_Item Notification_Item = (Notification_Item) NotificationAdapter2.getItem(position);
+
+
+            if(Notification_Item.GetProduct_Title()=="電競熱銷超值大Fun送~"){
+                shareTo("電競熱銷超值大Fun送~","電競熱銷超值大Fun送~","");
+            }
+
+
+
+        }
+
+    };
     private void Find_Notification(String WorkID) {
 
         if (mQueue == null) {
@@ -262,19 +309,7 @@ public class NotificationContent extends Fragment {
 
     }
 
-    private AdapterView.OnItemClickListener listViewOnItemClickListener
-            = new AdapterView.OnItemClickListener() {
-        @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-//            NotificationAdapter NotificationAdapter = (NotificationAdapter)parent.getAdapter();
-//
-//            Notification_Item Notification_Item = (Notification_Item)NotificationAdapter.getItem(position);
-//
-//            GoIssueInfo(Notification_Item.Get_F_Master_ID());
-
-        }
-    };
 
     private void GoIssueInfo(String IssueID) {
         Bundle bundle = new Bundle();
@@ -329,5 +364,12 @@ public class NotificationContent extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+    private void shareTo(String subject, String body, String chooserTitle) {
+        Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+        sharingIntent.setType("text/plain");
+        sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, subject);
+        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, body);
+        startActivity(Intent.createChooser(sharingIntent, chooserTitle));
     }
 }

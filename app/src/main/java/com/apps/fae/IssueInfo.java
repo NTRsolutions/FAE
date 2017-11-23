@@ -30,6 +30,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -579,7 +580,7 @@ private File VideoFileName(String prefix, String extension) {
 
         if (!TextUtils.isEmpty(Comment)) {
 
-            final ImageView Img_IssueInfo_Send = (ImageView) findViewById(com.apps.fae.R.id.Img_IssueInfo_Send);
+            final Button Img_IssueInfo_Send = (Button) findViewById(com.apps.fae.R.id.Img_IssueInfo_Send);
 
             Img_IssueInfo_Send.setVisibility(View.GONE);
 

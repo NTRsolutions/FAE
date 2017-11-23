@@ -39,6 +39,10 @@ public class Welcome extends Activity {
                 UserData.Dept="設計品質驗證三部";
                 UserData.EName="iriswu";
 
+                //將登入資訊寫入DB
+//                UserDB UserDB = new UserDB(getApplicationContext());
+//
+//                UserDB.insert(new UserData(Account, Password, WorkID, Name, Phone, Dept, Account, LastTab));
 
                 Intent intent = new Intent(Welcome.this, MainTab.class);
 

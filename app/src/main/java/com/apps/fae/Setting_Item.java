@@ -11,16 +11,18 @@ public class Setting_Item {
     int Next_image;
     String Setting_main;
     String Setting_sub;
+    Boolean Switch;
 
 
 
 
-    public Setting_Item(int Setting_image,String Setting_main, String Setting_sub,int Next_image) {
+    public Setting_Item(int Setting_image,String Setting_main, String Setting_sub,int Next_image,boolean Switch) {
 
         this.Setting_image = Setting_image;
         this.Next_image = Next_image;
         this.Setting_main = Setting_main;
         this.Setting_sub = Setting_sub;
+        this.Switch = Switch;
 
     }
     public int Setting_image() {
@@ -34,6 +36,9 @@ public class Setting_Item {
     }
     public String Setting_sub() {
         return this.Setting_sub;
+    }
+    public boolean Switch() {
+        return this.Switch;
     }
 
     public String GetID() {
