@@ -32,7 +32,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
                 android:paddingRight="14dp"
-                android:text="Done"
+                android:text="Submit"
                 android:textColor="@color/Banner_Font"
                 android:textSize="25sp"></TextView>
         </android.support.v7.widget.Toolbar>
@@ -98,132 +98,45 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/NewIssue_Attachment"
+        android:id="@+id/IssueInfo_Bottom_Layout"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@color/NewIssue_Attachment_Background"
-        android:layout_marginBottom="3dp"
+        android:layout_height="wrap_content"
+        android:background="#d5d5d5"
         android:orientation="horizontal">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:id="@+id/Lnl_Picture">
+        <ImageView
+            android:id="@+id/Img_IssueInfo_AddPhoto"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:src="@mipmap/btn_newissue_camera" />
 
-            <ImageView
-                android:id="@+id/Img_IssueInfo_AddPhoto"
-                android:layout_width="45dp"
-                android:layout_height="40dp"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:src="@mipmap/btn_newissue_camera">
-
-            </ImageView>
-
-
-            <TextView
-                android:id="@+id/txt_Pictire"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Picture" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:id="@+id/Lnl_Camera">
-
-            <ImageView
-                android:id="@+id/Img_IssueInfo_AddCamera"
-                android:layout_width="45dp"
-                android:layout_height="40dp"
-                android:layout_centerInParent="true"
-
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:src="@mipmap/btn_newissue_video" />
-
-            <TextView
-                android:text="Camera"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/txt_Camera" />
+        <ImageView
+            android:id="@+id/Img_IssueInfo_AddVideo"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/Img_IssueInfo_AddPhoto"
+            android:clickable="true"
+            android:elevation="0dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:src="@mipmap/btn_newissue_video" />
 
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:id="@+id/Lnl_Photo">
-
-            <ImageView
-                android:id="@+id/Img_NewIssueByPhoto"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:src="@mipmap/btn_newissue_photoupload" />
-
-            <TextView
-                android:text="Photo"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/txt_NewIssueByPhoto" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:id="@+id/Lnl_Microphone">
-
-            <ImageView
-                android:id="@+id/Img_IssueInfo_AddVoice"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:src="@mipmap/btn_newissue_microphone" />
-
-            <TextView
-                android:text="Microphone"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/txt_Microphone" />
-        </LinearLayout>
-
-
-
-
-        />
-        <!--<TextView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:layout_alignParentBottom="true"-->
-        <!--android:paddingLeft="13dp"-->
-        <!--android:layout_toRightOf="@+id/Img_IssueInfo_AddPhoto"-->
-        <!--android:layout_toLeftOf="@+id/Img_IssueInfo_Send"-->
-        <!--android:gravity="center_vertical"-->
-        <!--android:textSize="45sp"-->
-        <!--android:text="Photo"-->
-        <!--android:textColor="@color/NewIssue_Attachment"-->
-        <!--/>-->
+        <ImageView
+            android:id="@+id/Img_IssueInfo_AddRecording"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/Img_IssueInfo_AddVideo"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:src="@mipmap/btn_newissue_microphone" />
 
 
     </LinearLayout>

@@ -237,13 +237,13 @@ public class NewIssue extends AppCompatActivity {
 //            }
 //        });
 
-        LinearLayout Lnl_Picture = (LinearLayout) findViewById(com.apps.fae.R.id.Lnl_Picture);
-        LinearLayout Lnl_Camera = (LinearLayout) findViewById(com.apps.fae.R.id.Lnl_Camera);
-        LinearLayout Lnl_Microphone = (LinearLayout) findViewById(com.apps.fae.R.id.Lnl_Microphone);
-        LinearLayout Lnl_Photo = (LinearLayout) findViewById(com.apps.fae.R.id.Lnl_Photo);
+        ImageView Img_IssueInfo_AddPhoto = (ImageView) findViewById(com.apps.fae.R.id.Img_IssueInfo_AddPhoto);
+        ImageView Img_IssueInfo_AddVideo = (ImageView) findViewById(com.apps.fae.R.id.Img_IssueInfo_AddVideo);
+        ImageView Img_IssueInfo_AddRecording = (ImageView) findViewById(com.apps.fae.R.id.Img_IssueInfo_AddRecording);
 
 
-        Lnl_Picture.setOnClickListener(new View.OnClickListener() {
+
+        Img_IssueInfo_AddPhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
 
@@ -253,7 +253,7 @@ public class NewIssue extends AppCompatActivity {
             }
         });
 
-        Lnl_Camera.setOnClickListener(new View.OnClickListener() {
+        Img_IssueInfo_AddVideo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
 
@@ -262,42 +262,42 @@ public class NewIssue extends AppCompatActivity {
             }
         });
 
-        Lnl_Photo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-//// 建立 "選擇檔案 Action" 的 Intent
-//                Intent intent = new Intent( Intent.ACTION_PICK );
+//        Lnl_Photo.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
 //
-//                // 過濾檔案格式
-//                intent.setType( "image/*" );
 //
-//                // 建立 "檔案選擇器" 的 Intent  (第二個參數: 選擇器的標題)
-//                Intent destIntent = Intent.createChooser( intent, "Choose Photo" );
+////// 建立 "選擇檔案 Action" 的 Intent
+////                Intent intent = new Intent( Intent.ACTION_PICK );
+////
+////                // 過濾檔案格式
+////                intent.setType( "image/*" );
+////
+////                // 建立 "檔案選擇器" 的 Intent  (第二個參數: 選擇器的標題)
+////                Intent destIntent = Intent.createChooser( intent, "Choose Photo" );
+////
+////                // 切換到檔案選擇器 (它的處理結果, 會觸發 onActivityResult 事件)
+////                startActivityForResult( destIntent, REQUEST_Photo_CAPTURE );
 //
-//                // 切換到檔案選擇器 (它的處理結果, 會觸發 onActivityResult 事件)
-//                startActivityForResult( destIntent, REQUEST_Photo_CAPTURE );
+//
+//// start multiple photos selector
+//                Intent intent = new Intent(NewIssue.this, ImagesSelectorActivity.class);
+//// max number of images to be selected
+//                intent.putExtra(SelectorSettings.SELECTOR_MAX_IMAGE_NUMBER, 5);
+//// min size of image which will be shown; to filter tiny images (mainly icons)
+//                intent.putExtra(SelectorSettings.SELECTOR_MIN_IMAGE_SIZE, 100000);
+//// show camera or not
+//                intent.putExtra(SelectorSettings.SELECTOR_SHOW_CAMERA, false);
+//// pass current selected images as the initial value
+////                intent.putStringArrayListExtra(SelectorSettings.SELECTOR_INITIAL_SELECTED_LIST, mMultiPhotoPath);
+//// start the selector
+//                startActivityForResult(intent, REQUEST_Photo_CAPTURE);
+//
+//
+//            }
+//        });
 
-
-// start multiple photos selector
-                Intent intent = new Intent(NewIssue.this, ImagesSelectorActivity.class);
-// max number of images to be selected
-                intent.putExtra(SelectorSettings.SELECTOR_MAX_IMAGE_NUMBER, 5);
-// min size of image which will be shown; to filter tiny images (mainly icons)
-                intent.putExtra(SelectorSettings.SELECTOR_MIN_IMAGE_SIZE, 100000);
-// show camera or not
-                intent.putExtra(SelectorSettings.SELECTOR_SHOW_CAMERA, false);
-// pass current selected images as the initial value
-//                intent.putStringArrayListExtra(SelectorSettings.SELECTOR_INITIAL_SELECTED_LIST, mMultiPhotoPath);
-// start the selector
-                startActivityForResult(intent, REQUEST_Photo_CAPTURE);
-
-
-            }
-        });
-
-        Lnl_Microphone.setOnClickListener(new View.OnClickListener() {
+        Img_IssueInfo_AddRecording.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
 
