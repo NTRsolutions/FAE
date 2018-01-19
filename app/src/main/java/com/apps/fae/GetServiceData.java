@@ -50,7 +50,10 @@ public class GetServiceData {
 
     //正式機
     public static String ServicePath = "http://wtsc.msi.com.tw/IMS/IMS_App_Service.asmx";
-
+   //FAE服務
+   public static String FAEServicePath = "http://wtsc.msi.com.tw/IMS/FAE_App_Service.asmx";
+   //IP Count
+    public static  String IPCount = "http://wtsc.msi.com.tw/IMS/Application_Service.asmx";
     //測試機
     //public static String ServicePath = "http://172.16.111.111:200/IMS_App_Service.asmx";
 
@@ -145,6 +148,8 @@ public class GetServiceData {
         });
         mQueue.add(stringRequest);
     }
+
+
 
     public static void getImage(String Url, RequestQueue mQueue, final ImageView Img) {
         ImageRequest request = new ImageRequest(Url,

@@ -66,6 +66,9 @@ import java.util.HashMap;
 import java.util.Map;
 import android.hardware.Camera;
 import android.hardware.Camera.Parameters;
+import android.widget.Toast;
+
+import static android.widget.Toast.LENGTH_LONG;
 
 public class MainTab extends AppCompatActivity {
 
@@ -496,6 +499,9 @@ public class MainTab extends AppCompatActivity {
 
     }
 
+
+
+
     private void Search_Project(String QR_Content) {
 
 
@@ -508,8 +514,6 @@ public class MainTab extends AppCompatActivity {
         GetServiceData.getString(Path, mQueue, new GetServiceData.VolleyCallback() {
             @Override
             public void onSuccess(JSONObject result) {
-
-
                 Go_To_New_Issue(result.toString());
             }
         });
